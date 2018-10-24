@@ -1,0 +1,22 @@
+python 3.5.4
+Django 2.1.6
+mysqlclient 1.3.7
+mysql-connector 2.1.6
+mysql-connector-python 8.0.12
+Pillow 5.2.0
+Builtin indjango server
+DataBase MySql
+___________
+4InvoiceApp 
+invoice/invoice/settings/
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'invoice_db',
+        'USER': 'root1',
+        'PASSWORD': 'passpass',
+        'HOST': '127.0.0.1',
+        'PORT': ''
+    }
+}
+___________
