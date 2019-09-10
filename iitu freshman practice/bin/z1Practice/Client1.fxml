@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="600.0" style="-fx-background-color: grey; -fx-background-radius: 15px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="18.0" layoutY="15.0" prefHeight="201.0" prefWidth="561.0" style="-fx-background-radius: 15px; -fx-background-color: white;">
+         <top>
+            <StackPane prefHeight="89.0" prefWidth="565.0" style="-fx-background-color: #7fffd4; -fx-border-style: solid; -fx-border-width: 1.5;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fx:id="text" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Quick search" textAlignment="CENTER" wrappingWidth="200.0">
+                     <font>
+                        <Font name="Gabriola" size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </StackPane>
+         </top>
+         <bottom>
+            <StackPane prefHeight="62.0" prefWidth="565.0" style="-fx-background-color: #7fffd4; -fx-border-style: solid; -fx-border-width: 1.5;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="generateSequence" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="180.0" text="Random Sequence" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font name="Gabriola" size="24.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <Button fx:id="findNumber" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="75.0" text="Find" StackPane.alignment="TOP_CENTER">
+                     <font>
+                        <Font name="Gabriola" size="24.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets right="83.0" top="5.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <TextField fx:id="field" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="180.0" style="-fx-border-radius: 15; -fx-border-style: solid; -fx-background-radius: 15;" text="y5" StackPane.alignment="CENTER_RIGHT">
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" top="10.0" />
+                     </padding>
+                     <StackPane.margin>
+                        <Insets right="10.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font name="Times New Roman" size="20.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Binary" textFill="#ae1414" StackPane.alignment="BOTTOM_CENTER">
+                     <StackPane.margin>
+                        <Insets bottom="8.0" right="120.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font name="Gabriola" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="findNumber1" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="75.0" text="Find">
+                     <font>
+                        <Font name="Gabriola" size="24.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="83.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <Label text="Ternary" textFill="#ae1414" StackPane.alignment="BOTTOM_CENTER">
+                     <font>
+                        <Font name="Gabriola" size="14.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets bottom="8.0" left="50.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+         </bottom>
+         <center>
+            <GridPane alignment="CENTER" prefHeight="44.0" prefWidth="561.0" style="-fx-border-style: solid; -fx-border-width: 1;" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="label11" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="10" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label2" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label3" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label4" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label5" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label6" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label7" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label8" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label9" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label10" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label12" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="11" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label13" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="12" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label14" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="13" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label15" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="14" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label16" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="15" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label17" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.columnIndex="16" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label1" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="70.0" prefWidth="25.0" text="L" textAlignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Gabriola" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="w1" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w2" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w3" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w4" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w5" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="4">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w6" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w7" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="6">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w8" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="7">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w9" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="8">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w10" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="9">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w11" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="10">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w12" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w13" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="12">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w14" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="13">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w15" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="14">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w16" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="15">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="w17" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: white;" text="_" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="16">
+                     <GridPane.margin>
+                        <Insets top="3.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
