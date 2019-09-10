@@ -1,10 +1,10 @@
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'\\src'
 
 SECRET_KEY = 'h9ke%p0mgoo5d_vh2tfkgm*24f@2&!!f-q5n**k$5_or!k&2g^'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'src.urls'
 WSGI_APPLICATION = 'src.wsgi.application'
 
@@ -31,7 +31,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['src/templates'],
+        'DIRS': ['src/templates', 'src/bone/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -43,44 +43,29 @@ TEMPLATES = [
         },
     },
 ]
-import pymysql  # noqa: 402
+import pymysql
 pymysql.install_as_MySQLdb()
 if os.getenv('GAE_APPLICATION', None):
 	DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/arctic-signer-220812:asia-northeast1:gcloudtest27-10-19',#/cloudsql/[YOUR-CONNECTION-NAME]tensile-cogency-220620:asia-northeast1:gcloudtest27-10-18
+            'HOST': '/cloudsql/techshop-224317:asia-northeast1:techshop',
             'USER': 'root',
             'PASSWORD': 'aa18aa01',
-            'NAME': 'invoice_db',
+            'NAME': 'techshop',
 		}
 	}
 else:
 	DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.mysql',
-			'NAME': 'invoice_db',
+			'NAME': 'techshop',
 			'USER': 'root',
 			'PASSWORD': 'aa18aa01',
 			'HOST': '127.0.0.1',
-			'PORT': ''
+			'PORT': '3606'
 		}
 	}
-
-# AUTH_PASSWORD_VALIDATORS = [
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa: 501
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa: 501
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa: 501
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa: 501
-#     },
-# ]
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -89,6 +74,9 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "src/static")]
-STATIC_ROOT = os.path.join(BASE_DIR,"src/static/static_cdn")
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR,"static/static_cdn")
+MEDIA_ROOT = os.path.join(BASE_DIR,"static/media_cdn")
 LOGIN_REDIRECT_URL = '/'

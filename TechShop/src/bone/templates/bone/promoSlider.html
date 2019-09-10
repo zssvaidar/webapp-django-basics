@@ -1,0 +1,20 @@
+{% block content %}
+<div class="promo-slider">
+  <div class="mySlides">
+    {% for product in promo %}
+
+
+
+      {% if product.image %}
+        <img src="{{ product.image.url }}" style="height:auto;"alt="something">
+      {% endif %}
+
+      {% if forloop.counter|divisibleby:6 %}
+        </div>	<div class="mySlides" alt="something">
+      {% endif %}
+    {% endfor %}
+  </div>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+{% endblock%}

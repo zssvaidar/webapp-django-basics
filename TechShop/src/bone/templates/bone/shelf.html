@@ -1,0 +1,26 @@
+{% block content %}
+	<div class="content-html-wrapper">
+		 {% for product in products %}
+			<a class="item item-1" href="{% url 'bone:product' product.id %}">
+				 <div class="image">
+						{% if product.image.url is not null %}
+								<img src="{{ product.image.url }}" alt="image" class="picture">
+						{% else %}
+								<img src="/static/images/sspicture.png" alt="image"class="picture">
+						{% endif %}
+				 </div>
+				 <div class="info info-bottom">
+					 <div class="category">
+							 {{product.name_id.name}}
+					 </div>
+					 <div class="note">
+							 {{product.name_id.product_type_id.title}}
+					 </div>
+					 <div class="discount" >
+							 {{product.price}}<span>₸</span>
+					 </div>
+				 </div>
+			 </a>
+			 {% if forloop.counter|divisibleby:4 %}	</div><div class="content-html-wrapper">{% endif %}
+		 {% endfor %}
+{% endblock%}

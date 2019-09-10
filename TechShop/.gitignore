@@ -1,0 +1,5 @@
+/env/
+__pycache__/
+static_cdn/
+media_cdn/
+.gcloudignore
