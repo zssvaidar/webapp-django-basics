@@ -1,0 +1,56 @@
+{% extends 'bookstore/base.html' %}
+{% block content %}
+		{% include 'bookstore/navBar.html'%}
+		{% include 'bookstore/sideBar.html'%}
+		<div class="col-md-9" style="margin:auto;float:right;width:100px;">
+			<div class="row">
+				<div class="col-md-12"  >
+					<div class="row" >
+						<div class="col-md-4">
+							<img src="/static/bookstore/pictures/usrP1.png" width="200" >
+						</div>
+						<div class="col-md-8" id="title">
+							<h3> {{user.username}}</h3>
+								<div id="publisher" st>
+									by  publisher.name</a>
+									author.first_name  author.last_name<br>
+								</div>
+						</div>
+					</div>
+			</div>
+		</div>
+			<div class="row" id="caption">
+				<div class="col-md-12">
+					<div class="row description">
+						{%  if cartbooks %}
+						 	{% for cartbook in cartbooks%}
+						<div class="col-md-4" style="margin-top:-35px;">
+							<a href="{% url 'bookstore:bookPage' cartbook.book_fk.id %}">
+								<img src="{{ cartbook.book_fk.image.url }}" width="200" >
+							</a>
+						</div>
+						<div class="col-md-4"style="margin-top:25px;">
+							<dd>
+							ISBN:      {{cartbook.book_fk.book_isbn}}<br>
+							Publisher: {{cartbook.book_fk.publisher_fk.name}}<br>
+							Published: {{cartbook.book_fk.publisher_fk.date_published}}<br>
+							Price:    {{cartbook.book_fk.price}}$
+							</dd>
+						</div>
+						<div class="col-md-4"style="margin-top:25px;">
+								<div class="sing-up-button d-none d-lg-block">
+										<a href="{% url 'bookstore:deletefromcart' cartbook.id %}">Delete</a>
+								</div>
+								<div class="sing-up-button d-none d-lg-block">
+										<a href="{% url 'bookstore:cartPage' %}">Buy</a>
+								</div>
+						</div>
+						{% endfor %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+				</div>
+
+{% endblock %}

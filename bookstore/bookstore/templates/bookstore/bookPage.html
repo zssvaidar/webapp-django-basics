@@ -1,0 +1,43 @@
+{% extends 'bookstore/base.html' %}
+{% block content %}
+		{% include 'bookstore/navBar.html'%}
+		{% include 'bookstore/sideBar.html'%}
+		<div class="col-md-9" style="margin:auto;float:right;width:100px;">
+		<div class="row">
+			<div class="col-md-12" id="caption" >
+				<div class="row" >
+					<div class="col-md-4">
+						<img src="{{ book.image.url }}" width="200" >
+					</div>
+					<div class="col-md-8" id="title">
+						<h3> {{book.title}}</h3>
+							<div id="publisher" st>
+								by  {{publisher.name}}</a>
+							{{book.author_fk.first_name}} {{book.author_fk.last_name}}<br>
+							</div>
+							<div style="background-color:red;">
+									<form method="post" action="{% url 'bookstore:addtocart' book.id %}">
+										{% csrf_token %}
+											<input type="submit" class="btnLogin"name="" value="Add to Cart"/>
+									</form>
+							</div>
+					</div>
+				</div>
+		</div>
+	</div>
+					<div class="row description">
+						<div class="col-md-8">
+							<dt>{{book.description}} </dt>
+						</div>
+						<div class="col-md-4">
+							<dd>
+							ISBN:      {{book.book_isbn}}<br>
+							Publisher: {{book.publisher_fk.name}}<br>
+							Published: {{book.publisher_fk.date_published}}<br>
+							Price:     {{book.price}}$
+							</dd>
+						</div>
+					</div>
+			</div>
+
+{% endblock %}

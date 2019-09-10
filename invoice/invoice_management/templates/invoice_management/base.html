@@ -1,0 +1,146 @@
+{% load staticfiles  %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<link defer rel="stylesheet" href="{% static 'invoice/css/bootstrap.min.css'%}">
+		<link defer rel="stylesheet" href="{% static 'invoice/css/jquery.dataTables.min.css'%}">
+		<link defer rel="stylesheet" href="{% static 'invoice/css/style.css' %}">
+	</head>
+	<body>
+		{% include 'invoice_management/navBar.html'%}
+			<div class="container" >
+				<div class="jumbotron">
+					<div class="row">
+						{% block content %}
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+
+
+		<script src="{% static 'invoice/js/jquery.min.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/bootstrap.min.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/jquery.dataTables.min.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/dataTables.buttons.min.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/jszip.min.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/pdfmake.min.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/vfs_fonts.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/buttons.html5.min.js' %}"type="text/javascript"></script>
+		<script src="{% static 'invoice/js/jquery.sessionTimeout.min.js' %}"type="text/javascript"></script>
+
+		<script>
+			$(document).ready(function() {
+					$('#mytable').DataTable( {
+						dom: 'Bfrtpi',
+    				 buttons: ['pdf'],
+				     columns: [
+				         {
+				             title: '#',
+				             defaultContent: '',
+				             data: 'img'
+				         },
+				 				{
+				             title: '<a class="effect-underline">QR</a>',
+				             defaultContent: '',
+				             data: 'qr'
+				         },
+				 				{
+				             title: '<a class="effect-underline">Product Name</a>',
+				             defaultContent: ''
+				         },
+				 				{
+				             title: '<a class="effect-underline">Price</a>',
+				             type: 'num'
+				         },
+				 				{
+				             title: '<a class="effect-underline">Specification</a>',
+				             defaultContent: ''
+				         },
+				 				{
+				             title: '<a class="effect-underline">Ordered</a>',
+				             defaultContent: ''
+				         },
+				 				{
+				             title: '<a class="effect-underline">Qtty</a>',
+				             type: 'num'
+				         },
+				 				{
+				             title: '#',
+										 defaultContent: '#'
+				         }
+				     ],
+								"paging" : false,
+								"info": false,
+								 "columnDefs": [
+									{
+									"targets": [ 0 ],
+									"orderable": false,
+									"searchable": false
+									},
+									{
+									"targets": [ 7 ],
+									"orderable": false,
+									"searchable": false
+									},
+								]
+							});
+						});
+						cty
+						ctry
+				var input = document.getElementByClassName('cty');
+				var options = {
+				    componentRestrictions: {
+				        country: 'long_name'
+				    }
+				};
+
+				var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+				google.maps.event.addListener(autocomplete, 'place_changed', function () {
+
+				    var place = autocomplete.getPlace();
+				    var lat = place.geometry.location.lat();
+				    var long = place.geometry.location.lng();
+				    alert(place.location());
+
+});
+		</script>
+		<!-- $(document).userTimeout({
+			session: 3000
+		}); -->
+		<!-- (function () {
+				var timeoutSession;
+				document.addEventListener('mousemove', function (e) {
+						clearTimeout(timeoutSession);
+						timeoutSession = setTimeout(function () {
+
+									window.location = 'https://arctic-signer-220812.appspot.com/invpage/logout/';
+						}, 600000); //60s
+				}, true);
+		})(); -->
+
+		<!-- function delayRedirectRefresh() {
+			var count = 60;
+			setInterval(function(){
+				count--;
+				if (count == 0) {
+				window.location = 'https://arctic-signer-220812.appspot.com/invpage/logout/';
+				}
+			},1000);
+		}
+		document.getElementById("body").onmouseover = function(){
+				delayRedirectRefresh();
+		}; -->
+
+		<!-- <script src="{%static 'invoice/js/bootstrap-table.js' %}"type="text/javascript"></script> -->
+		<!-- <script src="{%static 'invoice/js/bootstrap-table-export.js' %}"type="text/javascript"></script> -->
+		<!-- <script src="{%static 'invoice/js/FileSaver.min.js' %}"type="text/javascript"></script> -->
+		<!-- <script src="{%static 'invoice/js/jspdf.min.js' %}"type="text/javascript"></script> -->
+		<!-- <script src="{%static 'invoice/js/jspdf.plugin.autotable.js' %}"type="text/javascript"></script> -->
+		<!-- <script src="{%static 'invoice/js/tableExport.js' %}"type="text/javascript"></script> -->
+	</body>
+</html>

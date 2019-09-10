@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<link defer rel="stylesheet" href="{% static 'bookstore/css/bootstrap.min.css' now "U" %}">
+		<link defer  rel="stylesheet" href="{% static 'bookstore/css/style.css' now "U" %}">
+	</head>
+	<body>
+		<div class="container" >
+		  <div class="jumbotron">
+		    <div class="row">
+					{% block content %}
+		      {% endblock %}
+			</div>
+		</div>
+	</div>
+	<script src="{% static 'bookstore/js/bootstrap.min.js' %}"></script>
+	<script  src="{% static 'bookstore/js/jquery-3.2.1.min.js' %}"></script>
+
+	</body>
+</html>

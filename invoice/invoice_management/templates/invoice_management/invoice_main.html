@@ -1,0 +1,75 @@
+{% extends 'invoice_management/base.html' %}
+{% block content %}
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header card-header-primary">
+				<h4 class="card-title">Invoices</h4>
+			</div>
+			<div class="card-body">
+					<div class="row">
+						<table class="table table-striped table-responsive-md btn-table">
+							<thead>
+								<tr>
+									<th scope="col">QR</th>
+									<th scope="col">Product Name</th>
+									<th scope="col">Price</th>
+									<th scope="col">Specifications</th>
+									<th scope="col">Quantity</th>
+								</tr>
+							</thead>
+							{% if goods %}
+								{% for item in goods %}
+									{% if user.is_authenticated%}
+									<form method="post" action="{% url 'invoice_management:item_get'  item.id %}">
+									{% else %}
+									<form>
+									{% endif %}
+									{% csrf_token %}
+										<tbody>
+											<tr>
+												<th scope="row">{{item.qr}}</th>
+												<td>{{item.product_name}}</td>
+												<td>{{item.price}}</td>
+												<td>{{item.specification_fk.name}}</td>
+												<td>{{item.quantitity}}</td>
+											</tr>
+											<tr>
+												<td>
+													{% if user.is_staff %}
+													{% else %}
+														{{cartform.quantitity}}
+													{% endif%}
+												</td>
+												<td>
+													{% if user.is_authenticated %}
+															{% if user.is_staff %}
+																<a class="btn btn-primary" href="{% url 'invoice_management:edit_invoice' item.id %}" role="button">Edit</a>
+															{% else %}
+																<button type="submit" class="btn btn-indigo btn-sm m-0">Add to Cart</button>
+															{% endif %}
+											 	 {% else %}
+												 		<button type="submit" class="btn btn-indigo btn-sm m-0" disabled>Add to Cart</button>
+												 {% endif %}
+
+													{% if user.is_superuser %}
+		 														<a class="btn btn-primary" href="{% url 'invoice_management:invoice_delete' item.id %}" role="button">Delete</a>
+													{% endif %}
+												</td>
+										 </tr>
+										</tbody>
+									</form>
+								{% endfor %}
+							{% endif %}
+						</table>
+						{% if user.is_superuser %}
+							<div class="col-md-12">
+								<a class="btn btn-primary" href="{% url 'invoice_management:invoice_add' %}"style="padding:15px 35px;float:right;"  >
+										Add Item
+								</a>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'invoice_management/base.html' %}
+{% block content %}
+			<div class="col-md-12 card">
+				<div class="row card-body">
+					<div class="col-md-4">
+						<img class="img-responsive"src="/static/invoice/pictures/usrP1.png" alt="prof-picture"width="277px"height="350px">
+					</div>
+					{% if user.is_staff %}
+						<div class="col-md-4">
+							<form role="form" method="post" action="{% url 'invoice_profile_management:profile_update' %}">
+								{% csrf_token %}
+								<h4>	WELCOME  {{user.username}}</h4>
+								<h3>Edit user profile</h3>
+								{{form.username.label}}
+								{{form.first_name.label}}			{{form.first_name}}
+								{{form.last_name.label}}			{{form.last_name}}
+								{{form.email.label}}					{{form.email}}
+					  		<button type="submit"class="btn btn-primary pull-right" style="padding:14px; margin:15px;">Update</button>
+							</form>
+						</div>
+					{% if user.is_superuser %}
+						<div class="col-md-4 " style="margin-top:100px;">
+							<form role="form" method = "post" action="{% url 'register' %}">
+							{% csrf_token %}
+							<div class="row register-form">
+								<div class="col-md-8">
+										<div class="form-group">
+											<input  class="form-control"placeholder="Login"  name='username' type="text" required>
+										</div>
+										<div class="form-group">
+											<input class="form-control" placeholder="Password"name='password1'type="password" required>
+										</div>
+										<div class="form-group">
+											<input class="form-control" placeholder="Password"name='password2'type="password" required>
+										</div>
+										<input type="submit" class="btn btn-primary pull-right" value="Register Staff">
+									</div>
+								</div>
+							</form>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+			{% else %}
+				<div class="col-md-4">
+					<form role="form" method="post" action="{% url 'invoice_profile_management:profile_update' %}">
+						{% csrf_token %}
+						<h4>	WELCOME  {{user.username}}</h4>
+						<h3>Edit user profile</h3>
+						{{form.first_name.label}}					{{form.first_name}}
+						{{form.last_name.label}}					{{form.last_name}}
+						{{form.email.label}}							{{form.email}}
+						 <button type="submit"class="btn btn-primary pull-right" style="padding:14px 45px; margin:15px;">Update</button>
+					</form>
+				</div>
+				<div class="col-md-4" style="margin-top:4px;" >
+					{% if customer %}
+						<form method="post" action="{% url 'invoice_profile_management:customer_profile' %}">
+							{%csrf_token%}
+							<h4>Comercial prof.</h4>
+							{{customer.business_name.label}}			{{customer.business_name}}
+							{{customer.business_email.label}}			{{customer.business_email}}
+							{{customer.business_address.label}}		{{customer.business_address}}
+							{{customer.city.label}}								{{customer.city}}
+							{{customer.country.label}}						{{customer.country}}
+							{{customer.fax.label}}								{{customer.fax}}
+							<button type="submit"class="btn btn-primary pull-right" style="padding:14px 45px; margin:15px;">Create</button>
+						</form>
+					{% endif %}
+					{% if customer_edit %}
+						<form method="get" action="{% url 'invoice_profile_management:customer_profile' %}"style="width:250px;">
+							{%csrf_token%}
+							<h4>Comercial prof.</h4>
+							{{customer_edit.business_name.label}}					{{customer_edit.business_name}}
+							{{customer_edit.business_email.label}}				{{customer_edit.business_email}}
+							{{customer_edit.business_address.label}}			{{customer_edit.business_address}}
+							{{customer_edit.city.label}}									{{customer_edit.city}}
+							{{customer_edit.country.label}}								{{customer_edit.country}}
+							{{customer_edit.fax.label}}										{{customer_edit.fax}}
+							<button type="submit"class="btn btn-primary pull-right" style="padding:10px 35px; margin:15px;">Edit</button>
+						</form>
+					{% endif %}
+				</div>
+
+
+			<div class="col-md-12 card" style="margin:auto;float:right;width:100px;">
+				<div class="col-md-12  card-body"style="margin-top:48px;">
+					<table class="table table-striped table-responsive-md btn-table" id="mytable">
+						<tbody>
+							{% if cart %}
+								{% for item in cart %}
+									<tr>
+										<td>
+											<img src="/static/invoice/pictures/eJ3Qp5zOnpk.jpg" style="margin-top:-25px;"alt="Picture"width="65px"height="100px">
+										</td>
+										<td scope="col">{{item.item_fk.qr}}</td>
+										<td>{{item.item_fk.product_name}}</td>
+										<td>{{item.item_fk.price}}</td>
+										<td>{{item.item_fk.specification_fk.name}}</td>
+										<td>{{item.date_invoice}}</td>
+										<td>{{item.quantitity}} </td>
+										<td>
+											<a href="{% url 'invoice_management:invoice_delete_customer' item.id %}">
+												<button type="submit" class="btn btn-indigo btn-sm m-0" >Delete</button>
+											</a>
+										</td>
+									</tr>
+								{% endfor%}
+							{% endif %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+	{% endif %}
+	{% if user.is_superuser %}
+	<div class="col-md-12 card" style="margin:auto;float:right;width:100px;">
+		<div class="row">
+			{% if users %}
+				{% for user in users %}
+					<div class="col-md-12 card-body">
+						<div class="row ">
+							<div class="col-md-3">
+								<img class="img-responsive"src="/static/invoice/pictures/usrP1.png" alt="Picture"width="177px"height="220px">
+							</div>
+								<div class="col-md-9" style="margin-top:48px;">
+									<table class="table table-striped table-responsive-md btn-table" >
+										<thead>
+											<tr>
+												<th scope="col">Username</th>
+												<th scope="col">First_name name</th>
+												<th scope="col">Last name</th>
+												<th scope="col">Email</th>
+												<th scope="col" colspan="2">Position</th>
+												<th>
+													<a href="{% url 'invoice_profile_management:invoice_delete_user' user.id %}">
+														<button type="submit" class="btn btn-indigo btn-sm m-0" >Delete</button>
+													</a>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">{{user.username}}</th>
+												<td>{{user.first_name}}</td>
+												<td>{{user.last_name}}</td>
+												<td colspan="2">{{user.email}} </td>
+												<td>{% if user.is_staff %}Staff {%endif%}</td>
+												<td></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					{% endfor%}
+				{% endif %}
+
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

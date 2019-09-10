@@ -1,0 +1,54 @@
+{% extends 'invoice_management/base.html' %}
+{% block content %}
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header card-header-primary">
+			<h4 class="card-title">Invoices</h4>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<table class="table table-striped table-responsive-md btn-table">
+					<thead>
+						<tr>
+							<th scope="col">QR</th>
+							<th scope="col">Product Name</th>
+							<th scope="col">Price</th>
+							<th scope="col">Specifications</th>
+							<th scope="col">Quantity</th>
+						</tr>
+					</thead>
+					{% if item1 %}
+						<form method="post" action="{% url 'invoice_management:invoice_add' %}">
+					{% else %}
+							<form method="post" action="{% url 'invoice_management:edit_invoice' id %}">
+					{% endif %}
+						{% csrf_token %}
+						<tbody>
+							<tr>
+								{%if item1%}
+									<th scope="row">{{item1.qr}}</th>
+									<td>{{item1.product_name}}</td>
+									<td>{{item1.price}}</td>
+									<td>{{item1.specification_fk}}</td>
+									<td>{{item1.quantitity}}</td>
+								{% else %}
+									<th scope="row">{{item.qr}}</th>
+									<td>{{item.product_name}}</td>
+									<td>{{item.price}}</td>
+									<td>{{item.specification_fk}}</td>
+									<td>{{item.quantitity}}</td>
+								{% endif %}
+							</tr>
+							<tr>
+								<td>
+									<button type="submit" class="btn btn-indigo btn-sm m-0" >Enter</button>
+								</td>
+						 </tr>
+						</tbody>
+					</form>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

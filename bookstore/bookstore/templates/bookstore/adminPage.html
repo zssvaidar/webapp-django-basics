@@ -1,0 +1,106 @@
+{% extends 'bookstore/base.html' %}
+{% block content %}
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Add Book</h4>
+                </div>
+                <div class="card-body">
+                  <form method="post" action="{% url 'booksotre_managment:addBook'%}"enctype="multipart/form-data">
+                    	{% csrf_token %}
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Category</label>
+                          {{form3.title}}
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Title</label>
+                          {{form.title}}
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Price</label>
+                          {{form.price}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Book isbn</label>
+                          {{form.book_isbn}}
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group" >
+                          <label class="bmd-label-floating">Picture</label>
+                          {{form.image}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Author name</label>
+                          {{form1.first_name}}
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Author last_name</label>
+                          {{form1.last_name}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">publisherName</label>
+                          {{form2.name}}
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">publishedDate</label>
+                          {{form2.date_published}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Description</label>
+                            {{form.description}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input type="submit" class="btn btn-primary pull-right"  value="Submit">
+                     <!-- <input type="hidden" value="{{ next }}">  -->
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <img class="img" src="/media/book_image/51PaFEwhmYL.jpg" />
+                  </a>
+                </div>
+                <div class="card-body">
+                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                  </p>
+                  <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% block navbar %}
+<header class="header_area animated">
+  <div class="row align-items-center">
+    <div class="col-lg-10">
+      <div class="menu_area">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="{% url 'invoices_page'  %}">4invApp</a>
+      	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="ca-navbar">
+              <ul class="navbar-nav ml-auto" id="nav" style="visibility: hidden;">
+                <li class="nav-item active"><a class="nav-link" href="#home">First</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Second</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">Third</a></li>
+                <li class="nav-item"><a class="nav-link" href="#screenshot">Fourth</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pricing">Fifth</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials">Sixth</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">Seventh</a></li>
+      			  </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="col-lg-2" style="padding:25px;">
+				<ul >
+					{% if user.is_authenticated %}
+					<li style="margin-bottom:5px;">
+						<form method="post" action="{% url 'logout' %}">
+								{% csrf_token %}
+									<button class="sing-up-button d-none d-lg-block" >
+											Logout
+									</button>
+						</form>
+					</li>
+					<li style="margin-bottom:-15px;">
+						<form method="post" action="{% url 'invoice_profile_management:profile'  %}">
+								{% csrf_token %}
+									<button class="sing-up-button d-none d-lg-block" >
+                    {{user.username}}
+											Profile
+									</button>
+						</form>
+					</li>
+					{% else %}
+					<li>
+						<div class="sing-up-button d-none d-lg-block">
+								<a href="{% url 'login' %}">Login</a>
+            </div>
+					</li>
+					<li>
+						<div class="sing-up-button d-none d-lg-block">
+								<a href="{% url 'register' %}">Register</a>
+						</div>
+					</li>
+					{% endif %}
+			</ul>
+    </div>
+  </div>
+</header>
+{% endblock %}
